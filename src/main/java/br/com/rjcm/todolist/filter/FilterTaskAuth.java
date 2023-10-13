@@ -55,7 +55,8 @@ public class FilterTaskAuth extends OncePerRequestFilter {
           response.sendError(401);
         }
       }
+    } else {
+      filterChain.doFilter(request, response);
     }
-    filterChain.doFilter(request, response);
   }
 }
