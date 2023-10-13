@@ -43,7 +43,6 @@ public class TaskController {
         .body("A data de início deve ser menor que a data de termino");
     }
 
-
     this.taskRepository.save(taskModel);
 
     return ResponseEntity.status(HttpStatus.OK).body(taskModel);
@@ -66,7 +65,7 @@ public class TaskController {
     var idUser = request.getAttribute("idUser");
     var task = this.taskRepository.findById(id).orElse(null);
 
-    if (task== null) {
+    if (task == null) {
       return ResponseEntity
         .status(HttpStatus.NOT_FOUND)
         .body("Tarefa não encontrada");
